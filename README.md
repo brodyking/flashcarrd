@@ -11,12 +11,34 @@ Just clone the directory and start a php server. Use php version `8.x` for the b
 git clone https://github.com/brodyking/flashcarrd
 ```
 
+### Test Data
+Here is a study set you can put into the users sets folder to mess around with them. Save this file as `sets/spanish-past-tense.json` in the users folder.
+```json
+{
+    "set.name": "spanish-past-tense",
+    "set.questions": {
+        "yo": "e",
+        "tu": "aste",
+        "el/ella/usted": "o",
+        "nosotros": "amos",
+        "vosotros": "asteis",
+        "ellos/ellas/ustedes": "aron"
+    }
+}
+```
+
+Then edit the `sets.json` to link it
+```json
+["spanish-past-tense"]
+```
+
 ## Roadmap
 
 - [x] User accounts
 - [x] Database and UI
 - [x] Functioning Sets
 - [ ] User-Created Studying Sets
+- [ ] Working Settings Page
 
 
 ## Documentation
