@@ -11,6 +11,14 @@ Just clone the directory and start a php server. Use php version `8.x` for the b
 git clone https://github.com/brodyking/flashcarrd
 ```
 
+## Roadmap
+
+- [x] User accounts
+- [x] Database and UI
+- [x] Functioning Sets
+- [ ] User-Created Studying Sets
+
+
 ## Documentation
 Here is enough to get you started. You'll figure it out.
 
