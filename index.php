@@ -11,7 +11,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="assets/logo-180.png">
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-    <title>Flashcardd</title>
+    <title>Flashcarrd</title>
 </head>
 
 <body>
