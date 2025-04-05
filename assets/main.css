@@ -8,6 +8,9 @@ a:hover {
 nav {
     padding: 0px!important;
 }
+nav > .container-fluid {
+    max-width: 750px;
+}
 .navbar-toggler {
     border: none;
 }
@@ -17,4 +20,6 @@ and (max-width : 450px) {
 main {
     margin: 10px;
 }
+.footer {
+    display: none;}
 }

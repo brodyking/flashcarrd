@@ -1,7 +1,8 @@
 <?php include "components/navbar-noauth.php"; ?>
+<?php include "components/nod.php"; ?>
 <main>
   <div class="card mt-5" style="max-width: 500px; margin:auto;">
-    <h5 class="card-header">Register</h5> 
+    <h5 class="card-header">Register</h5>
     <div class="card-body">
       <form method="post" action="/?register">
         <div class="mb-3">

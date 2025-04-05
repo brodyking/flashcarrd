@@ -26,7 +26,10 @@
     include "api/Auth.php";
     include "api/User.php";
     include "api/Sets.php";
-    
+    include "api/ChangePassword.php";
+    include "api/CreateSet.php";
+    include "api/DeleteSet.php";
+
     $errorapi = new ErrorHandling();
     if ($errorapi->detectError()) {
         $errorapi->getError();
@@ -34,24 +37,26 @@
 
     function register()
     {
-        $registerapi = new Register($_POST["usernameInput"],$_POST["passwordInput"], $_POST["emailInput"]);
+        $registerapi = new Register($_POST["usernameInput"], $_POST["passwordInput"], $_POST["emailInput"]);
     }
     function login()
     {
-        $loginapi = new Login($_POST["usernameInput"],$_POST["passwordInput"]);
+        $loginapi = new Login($_POST["usernameInput"], $_POST["passwordInput"]);
     }
 
-    /*
-    function sets()
+    function changepassword()
     {
-        $questionsapi = new Questions("test", "test", $_GET["set"]);
-        $questionkeys = $questionsapi->getQuestionsKeys();
-        $questions = $questionsapi->getQuestions();
-        foreach ($questionkeys as $key) {
-            echo $key . " - " . $questions[$key] . "<br>";
-        }
+        $changepasswordapi = new ChangePassword($_POST["usernameInput"], $_POST["oldPasswordInput"], $_POST["newPasswordInput"]);
     }
-        */
+    function createset()
+    {
+        $createsetapi = new CreateSet($_POST["usernameInput"], $_POST["setNameInput"]);
+    }
+    function deleteset()
+    {
+        $deletesetapi = new DeleteSet($_POST["usernameInput"], $_POST["setNameInput"]);
+    }
+
 
     function loginpage()
     {
@@ -63,10 +68,16 @@
         include "components/registerpage.php";
     }
 
-    function logout() {
+    function settings()
+    {
+        include "components/settings.php";
+    }
+
+    function logout()
+    {
         $logoutapi = new Logout($_COOKIE["username"]);
         $logoutapi->logout();
-    }    
+    }
 
 
     // If user has submitted a login form
@@ -82,11 +93,23 @@
     else if (isset($_GET["logout"])) {
         logout();
     }
+    // If a user has requested a logout 
+    else if (isset($_GET["createsetsubmit"])) {
+        createset();
+    }
+    // If a user has requested a logout 
+    else if (isset($_GET["deleteset"])) {
+        deleteset();
+    }
+    // If a user has requested a logout 
+    else if (isset($_GET["changepswd"])) {
+        changepassword();
+    }
     // Route user to login page
-    else if (isset($_GET["loginpage"])){
+    else if (isset($_GET["loginpage"])) {
         loginpage();
-    // Route user to register page
-    }  else if (isset($_GET["registerpage"])){
+        // Route user to register page
+    } else if (isset($_GET["registerpage"])) {
         registerpage();
     }
     // If user dosent has cookies for a login
@@ -101,17 +124,20 @@
         } else {
             // If correct login details, check the location they are attempting to visit. 
             // set for viewing a set of cards, home is default.
-
+    
             $userapi = new User($_COOKIE["username"]);
 
             if (isset($_GET["sets"])) { // Question Sets
                 include "components/sets.php";
             } else if (isset($_GET["viewset"])) {
                 include "components/viewset.php";
+            } else if (isset($_GET["createset"])) {
+                include "components/createset.php";
             } else if (isset($_GET["study"])) {
                 include "components/study.php";
-            }
-            else {
+            } else if (isset($_GET["settings"])) {
+                include "components/settings.php";
+            } else {
                 include "components/home.php";
             }
         }
@@ -120,12 +146,12 @@
     include "components/footer.php";
 
     ?>
-    
+
     <script src="assets/darkmodetoggle.js"></script>
     <script src="assets/js/bootstrap.bundle.min.js"></script>
-    <?php 
+    <?php
     if (isset($_GET['missed']) && isset($_GET['correct'])) {
-    echo '<script src="assets/results.js"></script>';
+        echo '<script src="assets/results.js"></script>';
     }
     ?>
 

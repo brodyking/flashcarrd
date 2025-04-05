@@ -1,35 +1,13 @@
 # flashcarrd
+
 a simple flashcard app written in php and javascript
 
-> [!NOTE]
-> This project is not in a finished state. Bugs are to be expected
-
 ## Install
+
 Just clone the directory and start a php server. Use php version `8.x` for the best results. No database required.
 
 ```
 git clone https://github.com/brodyking/flashcarrd
-```
-
-### Test Data
-Here is a study set you can put into the users sets folder to mess around with them. Save this file as `sets/spanish-past-tense.json` in the users folder.
-```json
-{
-    "set.name": "spanish-past-tense",
-    "set.questions": {
-        "yo": "e",
-        "tu": "aste",
-        "el/ella/usted": "o",
-        "nosotros": "amos",
-        "vosotros": "asteis",
-        "ellos/ellas/ustedes": "aron"
-    }
-}
-```
-
-Then edit the `sets.json` to link it
-```json
-["spanish-past-tense"]
 ```
 
 ## Roadmap
@@ -37,11 +15,11 @@ Then edit the `sets.json` to link it
 - [x] User accounts
 - [x] Database and UI
 - [x] Functioning Sets
-- [ ] User-Created Studying Sets
-- [ ] Working Settings Page
-
+- [x] Working Settings Page
+- [x] User-Created Studying Sets
 
 ## Documentation
+
 Here is enough to get you started. You'll figure it out.
 
 1. All API functions/objects are in `api/`

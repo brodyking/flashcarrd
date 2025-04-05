@@ -1,9 +1,10 @@
 <?php include "components/navbar-noauth.php"; ?>
 <main>
+    <?php include "components/nod.php"; ?>
     <div class="card mt-5" style="max-width: 500px; margin:auto;">
-        <h5 class="card-header">Login</h5> 
+        <h5 class="card-header">Login</h5>
         <div class="card-body">
-            
+
             <form method="post" action="/?login">
                 <div class="mb-3">
                     <label for="usernameInput">Username</label>

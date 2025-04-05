@@ -1,4 +1,4 @@
-<nav class="navbar border-top fixed-bottom bg-body-tertiary">
+<nav class="navbar border-top fixed-bottom bg-body-tertiary footer">
     <div class="container-fluid">
         <p class="m-0" style="font-size:10pt;padding:5px;display:block;width:100%;">
             <span style="float: left;">
